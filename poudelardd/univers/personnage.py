@@ -1,4 +1,4 @@
-def afficher_personnage(joueur):
+def afficher_personnage(joueur, ):
     dic =
     print("Profil du personnage :",end="")
     afficher_tab( joueur ["P"])
@@ -10,7 +10,7 @@ def afficher_personnage(joueur):
     afficher_tab(joueur[S])
     print("Attributs :",end="")
     afficher_tab(joueur[A])
-    print("-courage : "{} \n,"- intelligence :"{}\n,"-loyauté : "{} \n,"ambition :" \n{})
+    print("-courage : "{},\n,"- intelligence :"{}\n,"-loyauté : "{} \n,"ambition :" \n{})
 
 
 def initialiser_personnage(nom,prenom,attributs):
