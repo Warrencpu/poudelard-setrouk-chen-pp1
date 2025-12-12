@@ -15,19 +15,19 @@ def creer_personnage():
     attr[loyauté]==demander_nombre("niveau de loyauté (1-10) ", 1, 10),
     attr[ambition]==demander_nombre("niveau d'ambition (1-10) ", 1, 10),
     perso = initialiser_personnage(nom,prenom,attr),
-    print(perso)
+
 #3
 def recevoir_lettre():
     print("Une chouette traverse la fenêtre et vous apporte une lettre scellée du sceau de Poudlard... « Cher élève, Nous avons le plaisir de vous informer que vous avez été admis à l’école de sorcellerie de Poudlard ! » Souhaitez-vous accepter cette invitation et partir pour Poudlard ? 1. Oui, bien sûr ! 2. Non, je préfère rester avec l’oncle Vernon... ")
-        lettre=input(),
-        if lettre == 1:
-            print("Votre choix:", lettre)
-        if lettre == 2:
-            print("Vous déchirez la lettre, l’oncle Vernon pousse un cri de joie: « EXCELLENT ! Enfin quelqu’un de NORMAL dans cette maison ! » Le monde magique ne saura jamais que vous existiez... Fin du jeu. ")
-            exit(0)
-        else:
-            print("Erreur veuillez saisir une valeur valide")
-            exit(1)
+    lettre=input()
+    if lettre == 1:
+        print("Votre choix:", lettre)
+    if lettre == 2:
+        print("Vous déchirez la lettre, l’oncle Vernon pousse un cri de joie: « EXCELLENT ! Enfin quelqu’un de NORMAL dans cette maison ! » Le monde magique ne saura jamais que vous existiez... Fin du jeu. ")
+        exit(0)
+    else:
+        print("Erreur veuillez saisir une valeur valide")
+        exit(1)
 
 #4
 def rencontrer_hagrid(personnage):
