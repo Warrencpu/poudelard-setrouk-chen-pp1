@@ -7,26 +7,27 @@ def creer_personnage():
             "intelligence": 0,
             "loyauté" : 0,
             "ambition": 0}
-    nom = initialiser_personnage(demander_texte(input("quel est votre nom"))
-    prenom =demander_texte(input("quel est votre prenom"))
-    print("Choisissez vos attributs")
-    attr[courage]=demander_nombre("niveau de courage (1-10) ",1,10)
-    attr[intelligence]=demander_nombre("niveau d'intelligence (1-10) ", 1, 10)
-    attr[loyauté]=demander_nombre("niveau de loyauté (1-10) ", 1, 10)
-    attr[ambition]=demander_nombre("niveau d'ambition (1-10) ", 1, 10)
-    perso = initialiser_personnage(nom,prenom,attr)
-    return perso
+    nom = initialiser_personnage(demander_texte(input("quel est votre nom")),
+    prenom = demander_texte(input("quel est votre prenom")),
+    print("Choisissez vos attributs"),
+    attr[courage]==demander_nombre("niveau de courage (1-10) ",1,10),
+    attr[intelligence]==demander_nombre("niveau d'intelligence (1-10) ", 1, 10),
+    attr[loyauté]==demander_nombre("niveau de loyauté (1-10) ", 1, 10),
+    attr[ambition]==demander_nombre("niveau d'ambition (1-10) ", 1, 10),
+    perso = initialiser_personnage(nom,prenom,attr),
+    print(perso)
 #3
 def recevoir_lettre():
-    lettre=int(input("Une chouette traverse la fenêtre et vous apporte une lettre scellée du sceau de Poudlard... « Cher élève, Nous avons le plaisir de vous informer que vous avez été admis à l’école de sorcellerie de Poudlard ! » Souhaitez-vous accepter cette invitation et partir pour Poudlard ? 1. Oui, bien sûr ! 2. Non, je préfère rester avec l’oncle Vernon... "))
-    if lettre == 1:
-       print("Votre choix:", lettre)
-    elif lettre == 2:
-        print("Vous déchirez la lettre, l’oncle Vernon pousse un cri de joie: « EXCELLENT ! Enfin quelqu’un de NORMAL dans cette maison ! » Le monde magique ne saura jamais que vous existiez... Fin du jeu. ")
-        exit(0)
-    else:
-        print("Erreur veuillez saisir une valeur valide")
-        exit(1)
+    print("Une chouette traverse la fenêtre et vous apporte une lettre scellée du sceau de Poudlard... « Cher élève, Nous avons le plaisir de vous informer que vous avez été admis à l’école de sorcellerie de Poudlard ! » Souhaitez-vous accepter cette invitation et partir pour Poudlard ? 1. Oui, bien sûr ! 2. Non, je préfère rester avec l’oncle Vernon... ")
+        lettre=input(),
+        if lettre == 1:
+            print("Votre choix:", lettre)
+        if lettre == 2:
+            print("Vous déchirez la lettre, l’oncle Vernon pousse un cri de joie: « EXCELLENT ! Enfin quelqu’un de NORMAL dans cette maison ! » Le monde magique ne saura jamais que vous existiez... Fin du jeu. ")
+            exit(0)
+        else:
+            print("Erreur veuillez saisir une valeur valide")
+            exit(1)
 
 #4
 def rencontrer_hagrid(personnage):
@@ -39,8 +40,11 @@ def rencontrer_hagrid(personnage):
         print("Hagrid insiste gentiment et vous entraîne quand même avec lui! ")
         exit(0)
 #5
-def acheter_fourniture:
-    load_fichier(poudelardd/data/inventaire.json)
+def acheter_fourniture ():
+    argent= 100
+
+
+    objets=load_fichier(poudelardd/data/inventaire.json)
     print("Bienvenue sur le Chemin de Traverse ! ")
-
-
+    print("Vous devez acheter trois objets obligatoires : Une baguette magique, une robe de sorcier et un manuel de potions.")
+    print("Vous avez 100 galions.")
