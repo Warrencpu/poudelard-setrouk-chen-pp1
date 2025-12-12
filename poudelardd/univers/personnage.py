@@ -1,4 +1,4 @@
-from input.untils.py import *
+from input_utils.py import *
 
 def initialiser_personnage(nom,prenom,attributs):
   joueur = {"Nom":nom,
