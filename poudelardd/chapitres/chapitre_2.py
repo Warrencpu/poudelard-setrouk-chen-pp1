@@ -1,6 +1,6 @@
 from poudelardd.chapitres.chapitre_1 import lancer_chapitre1
 from poudelardd.univers.personnage import repartition_maisons
-from poudelardd.utilis.input_utils import demander_choix
+from poudelardd.utilis.input_utils import demander_choix, load_fichier
 
 
 def rencontrer_amis(joueur):
@@ -58,4 +58,8 @@ def ceremonie_repartition(joueur):
         print("{} : {} points". format(a,b))
     input("Le Choipeau s'exclame : {} !!".format(gagnant))
     input("Tu rejoints les éléves de {} sous les acclamations ! ".format(gagnant))
+    return gagnant
 
+def installation_salle_commune(joueur):
+    dico = load_fichier("maisons.json")
+    print(dico["attrib"])
