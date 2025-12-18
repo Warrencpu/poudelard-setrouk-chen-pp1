@@ -2,9 +2,9 @@ from poudelardd.univers.personnage import initialiser_personnage
 from poudelardd.utilis.input_utils import demander_texte, demander_nombre, load_fichier, demander_choix
 
 def intro():
-    input("Bienvenue dans le monde des sorcies")
-    input("Une menace qui pese sur lecole de Poudelard et toi seulement peu y remedier")
-    input("Nous vous souhaitons une bonne game , Bonne chance ☆*: .｡. o(≧▽≦)o .｡.:*☆")
+    input("Bienvenue dans le monde des sorciers")
+    input("Une menace qui pèse sur l'école de Poudelard et toi seulement peu y remedier")
+    input("Nous vous souhaitons une bonne partie , Bonne chance ☆*: .｡. o(≧▽≦)o .｡.:*☆")
 
 
 def creer_personnage():
@@ -114,6 +114,5 @@ def lancer_chapitre1():
     personnage = creer_personnage()
     recevoir_lettre()
     rencontrer_hagrid(personnage)
-    acheter_fourniture(personnage)
     print("Vous avez fini le chapitre 1 (✿◡‿◡)")
     return personnage
