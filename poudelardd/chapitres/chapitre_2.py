@@ -1,4 +1,5 @@
 from poudelardd.chapitres.chapitre_1 import lancer_chapitre1
+from poudelardd.univers.personnage import repartition_maisons
 from poudelardd.utilis.input_utils import demander_choix
 
 
@@ -28,9 +29,33 @@ def rencontrer_amis(joueur):
     input("Le train continue sa route. Le chateau de Poudlard se profile à l'horizon...")
     input("Tes choix semblent déjà en dire long sur ta personalité !")
     input("Tes attributs mis à joue : {}".format(joueur['Attributs']))
+
 def mot_de_bienvenue():
     input("Bienvenue à Poudlard un endroit où la magie nest pas seulement dans les sorts mais aussi dans les rencontres les découvertes et parfois dans les imprévus qui transforment une journée ordinaire en souvenir inoubliable\nChaque année apporte son lot de défis et de surprises et cest ce qui fait de cette école un lieu unique Ici on apprend autant de ses réussites que de ses erreurs et il ny a aucune honte à trébucher tant quon se relève avec la volonté de continuer\nSouvenezvous que la curiosité ouvre des portes que le courage se trouve souvent là où on lattend le moins et que même la plus petite lumière peut éclairer un long chemin Si vous vous perdez dans les couloirs ou dans vos pensées respirez et avancez pas à pas quelquun finira toujours par vous tendre la main\nJe vous souhaite à tous une année pleine de magie de rires et de découvertes Que Poudlard soit pour vous un refuge un défi et une aventure")
 
-jouer = lancer_chapitre1()
-rencontrer_amis(jouer)
-print(jouer)
+def ceremonie_repartition(joueur):
+    input("La cérémonie de répartition commence dans la Grande salle...")
+    input("Le Choixpeau magique t'observe longuement avant de poser ses questions: ")
+    questions = [
+    (
+        "Tu vois un ami en danger. Que fais-tu ?",
+        ["Je fonce l'aider", "Je réfléchis à un plan", "Je cherche de laide", "Je reste calme et jobserve"],
+        ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
+    ),
+    (
+        "Quel trait te décrit le mieux ?",
+        ["Courageux et loyal", "Rusé et ambitieux", "Patient et travailleur", "Intelligent et curieux"],
+        ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
+    ),
+    (
+        "Face à un défi difficile, tu...",
+        ["Fonces sans hésiter", "Cherches la meilleure stratégie", "Comptes sur tes amis", "Analyses le problème"],
+        ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
+    )]
+    maisons , gagnant =repartition_maisons(joueur, questions)
+    print("Résumé des scores : ")
+    for a,b in maisons:
+        print("{} : {} points". format(a,b))
+    input("Le Choipeau s'exclame : {} !!".format(gagnant))
+    input("Tu rejoints les éléves de {} sous les acclamations ! ".format(gagnant))
+

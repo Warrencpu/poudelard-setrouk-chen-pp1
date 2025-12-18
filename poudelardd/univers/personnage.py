@@ -52,7 +52,7 @@ def repartition_maisons(joueur, questions):
           choix = demander_choix(questions[i][0], questions[i][1])
           ptm[questions[i][2][choix]] += 3
 
-      return afficher_maison_gagnante(ptm)
+      return ptm ,afficher_maison_gagnante(ptm)
 
 
 maisons = {
@@ -61,23 +61,6 @@ maisons = {
     "Poufsouffle": 0,
     "Serdaigle": 0
 }
-questions = [
-    (
-        "Tu vois un ami en danger. Que fais-tu ?",
-        ["Je fonce l'aider", "Je réfléchis à un plan", "Je cherche de laide", "Je reste calme et jobserve"],
-        ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
-    ),
-    (
-        "Quel trait te décrit le mieux ?",
-        ["Courageux et loyal", "Rusé et ambitieux", "Patient et travailleur", "Intelligent et curieux"],
-        ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
-    ),
-    (
-        "Face à un défi difficile, tu...",
-        ["Fonces sans hésiter", "Cherches la meilleure stratégie", "Comptes sur tes amis", "Analyses le problème"],
-        ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
-    )
-]
 
 Att = {"Courage" : 0,
        "Ambition" : 0,
