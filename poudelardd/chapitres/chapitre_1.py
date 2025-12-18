@@ -1,6 +1,7 @@
 from poudelardd.univers.personnage import initialiser_personnage
 from poudelardd.utilis.input_utils import demander_texte, demander_nombre, load_fichier, demander_choix
 
+def intro():
 
 def creer_personnage():
     attr = {"Courage": 0,
