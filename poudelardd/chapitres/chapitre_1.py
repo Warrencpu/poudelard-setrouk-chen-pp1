@@ -65,12 +65,12 @@ def acheter_fourniture(personnage):
         print("\n Boutique du Chemin de Traverse")
         print("Vous avez {} galions.".format(personnage["Argent"]))
 
-        for key in catalogue:
-            nom, prix = catalogue[key]
-            if key == "0":
-                print("{} : {}".format(key, nom))
+        for obj in catalogue:
+            nom, prix = catalogue[obj]
+            if obj == "0":
+                print("{} : {}".format(obj, nom))
             else:
-                print("{} : {} pour {} galions".format(key, nom, prix))
+                print("{} : {} pour {} galions".format(obj, nom, prix))
 
         choix = input("Votre choix : ")
 
