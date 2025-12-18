@@ -83,6 +83,4 @@ Att = {"Courage" : 0,
        "Ambition" : 0,
        "Loyauté" : 0,
        "Intelligence" : 0}
-joueur = initialiser_personnage("Jean","Paul",Att)
 
-repartition_maisons(joueur,questions)
