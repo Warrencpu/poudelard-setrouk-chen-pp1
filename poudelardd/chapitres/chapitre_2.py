@@ -28,7 +28,8 @@ def rencontrer_amis(joueur):
     input("Le train continue sa route. Le chateau de Poudlard se profile à l'horizon...")
     input("Tes choix semblent déjà en dire long sur ta personalité !")
     input("Tes attributs mis à joue : {}".format(joueur['Attributs']))
-
+def mot_de_bienvenue():
+    input("Bienvenue à Poudlard un endroit où la magie nest pas seulement dans les sorts mais aussi dans les rencontres les découvertes et parfois dans les imprévus qui transforment une journée ordinaire en souvenir inoubliable\nChaque année apporte son lot de défis et de surprises et cest ce qui fait de cette école un lieu unique Ici on apprend autant de ses réussites que de ses erreurs et il ny a aucune honte à trébucher tant quon se relève avec la volonté de continuer\nSouvenezvous que la curiosité ouvre des portes que le courage se trouve souvent là où on lattend le moins et que même la plus petite lumière peut éclairer un long chemin Si vous vous perdez dans les couloirs ou dans vos pensées respirez et avancez pas à pas quelquun finira toujours par vous tendre la main\nJe vous souhaite à tous une année pleine de magie de rires et de découvertes Que Poudlard soit pour vous un refuge un défi et une aventure")
 
 jouer = lancer_chapitre1()
 rencontrer_amis(jouer)
