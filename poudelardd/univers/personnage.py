@@ -1,4 +1,5 @@
-from input_utils.py import *
+from poudelardd.utilis.input_utils import *
+
 
 def initialiser_personnage(nom,prenom,attributs):
   joueur = {"Nom":nom,
@@ -9,12 +10,12 @@ def initialiser_personnage(nom,prenom,attributs):
             "Attributs": attributs}
   return joueur
 
-def afficher_personnage(joueur ):
-      for cle in joueur.keys():
-          print(cle,joueur[cle])
+def afficher_personnage(joueur):
+    for cle in joueur.keys():
+        print(cle,joueur[cle])
 
-  def modifier_argent(joueur, montant):
-  joueur[Argent] = joueur[Argent] + montant
+def modifier_argent(joueur, montant):
+  joueur["Argent"] = joueur["Argent"] + montant
   return joueur
 
 
@@ -22,33 +23,66 @@ def ajouter_objet(joueur,cle, objet):
   joueur[cle].append(objet)
 
 
-  def actualiser_points_maisons(maisons, nom_maisons, points):
+def actualiser_points_maisons(maisons, nom_maisons, points):
       if nom_maisons in maisons:
           maisons[nom_maisons] =+ points
           print("La maison ", nom_maisons, "a maintenant un total de ", maisons[nom_maisons], 'points !')
       else:
           print("Cette maisons n'existe pas")
 
-  def afficher_maison_gagnante(maisons):
-      score_max = 0
-      for i in range(4):
-          if score_max < maisons[i]:
-              score_max = maisons[i]
-      for i in range(4):
-          if score_max == maisons[i]:
-              print(maisons[i], " est gagnante")
+def afficher_maison_gagnante(maisons):
+    score_max = 0
+    for a,b in maisons.items():
+        if score_max < maisons[a]:
+            score_max = maisons[a]
+            maions_gagn = a
+    print(maions_gagn)
 
-  def repartition_maisons(joueurs, questions):
-      pointm = {"Gryphondor" : 0,
-                "Serpantard" : 0,
-                "Serdaigle" : 0,
-                "Poufsoufle" : 0 }
-      pointm[Gryphondor] = joueur[atrributs[0]]* 2
-      pointm[Serdaigle] = joueur[atrributs[1]] *2
-      pointm[Poufsoufle] = joueur[atrributs[2]]*2
-      pointm[Serpandtard] = joueur[atrributs[3]] *2
-      for i in range(questions):
+
+def repartition_maisons(joueur, questions):
+      ptm = {"Gryphondor" : 0,
+             "Serpantard" : 0,
+             "Serdaigle" : 0 ,
+             "Poufsoufle" : 0 }
+      ptm['Gryffondor'] = joueur["Attributs"][ "Courage" ]
+      ptm['Serdaigle'] = joueur["Attributs"]["Intelligence"]
+      ptm['Poufsouffle'] = joueur["Attributs"]["Loyauté"]
+      ptm['Serpendtard'] = joueur["Attributs"]["Ambition"]
+      for i in range(len(questions)):
           choix = demander_choix(questions[i][0], questions[i][1])
-          pointm[question[i[choix]]] =+ 3
-      maisonfinal = afficher_maison_gagante(pointm)
-      return maisonfinal
+          ptm[questions[i][2][choix]] += 3
+
+      return afficher_maison_gagnante(ptm)
+
+
+maisons = {
+    "Gryffondor": 0,
+    "Serpentard": 456,
+    "Poufsouffle": 0,
+    "Serdaigle": 0
+}
+questions = [
+    (
+        "Tu vois un ami en danger. Que fais-tu ?",
+        ["Je fonce l'aider", "Je réfléchis à un plan", "Je cherche de laide", "Je reste calme et jobserve"],
+        ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
+    ),
+    (
+        "Quel trait te décrit le mieux ?",
+        ["Courageux et loyal", "Rusé et ambitieux", "Patient et travailleur", "Intelligent et curieux"],
+        ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
+    ),
+    (
+        "Face à un défi difficile, tu...",
+        ["Fonces sans hésiter", "Cherches la meilleure stratégie", "Comptes sur tes amis", "Analyses le problème"],
+        ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
+    )
+]
+
+Att = {"Courage" : 0,
+       "Ambition" : 0,
+       "Loyauté" : 0,
+       "Intelligence" : 0}
+joueur = initialiser_personnage("Jean","Paul",Att)
+
+repartition_maisons(joueur,questions)

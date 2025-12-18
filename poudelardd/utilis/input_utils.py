@@ -15,7 +15,6 @@ def nb_existe(nb):
     return contient_lettre
 
 def demander_nombre(message,val_min=None,val_max=None):
-    nb = 'a'
     saisie = False
     while saisie == False :
         nb = input(message)
@@ -24,6 +23,7 @@ def demander_nombre(message,val_min=None,val_max=None):
             if val_min is not None or val_max is not None   :
                 if nb >= val_min or nb <= val_max:
                     saisie = True
+    return nb
 
 
 def demander_choix(messages,options):
@@ -40,3 +40,4 @@ def load_fichier(chemin_fichier):
     with open (chemin_fichier,"r",encoding='utf-8') as f:
         dico = json.load(f)
     return dico
+
