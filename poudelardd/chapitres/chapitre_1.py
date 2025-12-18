@@ -62,7 +62,7 @@ def acheter_fourniture(personnage):
 
     while choix != "0":
 
-        print("\n--- Boutique du Chemin de Traverse ---")
+        print("\n Boutique du Chemin de Traverse")
         print("Vous avez {} galions.".format(personnage["Argent"]))
 
         for key in catalogue:
