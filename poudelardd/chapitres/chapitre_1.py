@@ -2,6 +2,10 @@ from poudelardd.univers.personnage import initialiser_personnage
 from poudelardd.utilis.input_utils import demander_texte, demander_nombre, load_fichier, demander_choix
 
 def intro():
+    input("Bienvenue dans le monde des sorcies")
+    input("Une menace qui pese sur lecole de Poudelard et toi seulement peu y remedier")
+    input("Nous vous souhaitons une bonne game , Bonne chance ☆*: .｡. o(≧▽≦)o .｡.:*☆")
+
 
 def creer_personnage():
     attr = {"Courage": 0,
@@ -104,5 +108,12 @@ def acheter_fourniture(personnage):
     print("Vous devez acheter trois objets obligatoires : Une baguette magique, une robe de sorcier et un manuel de potions.")
     print("Vous avez 100 galions.")
 
-perso = creer_personnage()
-rencontrer_hagrid(perso)
+
+def lancer_chapitre1():
+    intro()
+    personnage = creer_personnage()
+    recevoir_lettre()
+    rencontrer_hagrid(personnage)
+    acheter_fourniture(personnage)
+    print("Vous avez fini le chapitre 1 (✿◡‿◡)")
+    return personnage
