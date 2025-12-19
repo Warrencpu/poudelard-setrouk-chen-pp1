@@ -15,12 +15,12 @@ def afficher_maison_gagnante(maisons):
         if score_max < maisons[a]:
             score_max = maisons[a]
             maions_gagn = a
-    print(maions_gagn)
+    return maions_gagn
 
 
 def repartition_maisons(joueur, questions):
     ptm = {"Gryphondor": 0,
-           "Serpantard": 0,
+           "Serpentard": 0,
            "Serdaigle": 0,
            "Poufsoufle": 0}
     ptm['Gryffondor'] = joueur["Attributs"]["Courage"]
@@ -29,6 +29,6 @@ def repartition_maisons(joueur, questions):
     ptm['Serpendtard'] = joueur["Attributs"]["Ambition"]
     for i in range(len(questions)):
         choix = demander_choix(questions[i][0], questions[i][1])
-        ptm[questions[i][2][choix]] += 3
+        ptm[questions[i][2][choix-1]] += 3
 
-    return ptm,
+    return ptm

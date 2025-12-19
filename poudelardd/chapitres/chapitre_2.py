@@ -1,7 +1,7 @@
-from poudelardd.chapitres.chapitre_1 import lancer_chapitre1
-from poudelardd.univers.personnage import repartition_maisons
+import json
+from poudelardd.univers.maison import repartition_maisons, afficher_maison_gagnante
+from poudelardd.univers.personnage import initialiser_personnage
 from poudelardd.utilis.input_utils import demander_choix, load_fichier
-
 
 def rencontrer_amis(joueur):
     input("Vous montez à bord du Poudlard Express. Le train démarre lentement en  direction du Nord...  ")
@@ -52,20 +52,29 @@ def ceremonie_repartition(joueur):
         ["Fonces sans hésiter", "Cherches la meilleure stratégie", "Comptes sur tes amis", "Analyses le problème"],
         ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
     )]
-    maisons , gagnant =repartition_maisons(joueur, questions)
+    house =repartition_maisons(joueur, questions)
+    gagnant = afficher_maison_gagnante(house)
     print("Résumé des scores : ")
-    for a,b in maisons:
+    for a,b in house.items():
         print("{} : {} points". format(a,b))
     input("Le Choipeau s'exclame : {} !!".format(gagnant))
     input("Tu rejoints les éléves de {} sous les acclamations ! ".format(gagnant))
+    joueur["maison_j"] = gagnant
     return gagnant
 
 def installation_salle_commune(joueur):
-    dico = load_fichier("maisons.json")
-    print(dico["attrib"])
+    dico = load_fichier("../data/maisons.json")
+    print(dico[joueur["maison_j"]])
 
-def lancer_chapitre_2(joueur)
+def lancer_chapitre_2(joueur):
     rencontrer_amis(joueur)
     mot_de_bienvenue()
     ceremonie_repartition(joueur)
+    installation_salle_commune(joueur)
     print("Vous avez fini le chapitre 2 (˶ᵔ ᵕ ᵔ˶)")
+
+joueur = initialiser_personnage("Pottah","Harry",{"Courage": 0,
+            "Intelligence": 0,
+            "Loyauté" : 0,
+            "Ambition": 0})
+lancer_chapitre_2(joueur)

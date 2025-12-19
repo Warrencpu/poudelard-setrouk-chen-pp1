@@ -118,4 +118,3 @@ def lancer_chapitre1():
     print("Vous avez fini le chapitre 1 (✿◡‿◡)")
     return personnage
 
-lancer_chapitre1()
