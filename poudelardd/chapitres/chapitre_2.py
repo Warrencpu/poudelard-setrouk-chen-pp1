@@ -58,8 +58,10 @@ def ceremonie_repartition(joueur):
         print("{} : {} points". format(a,b))
     input("Le Choipeau s'exclame : {} !!".format(gagnant))
     input("Tu rejoints les éléves de {} sous les acclamations ! ".format(gagnant))
-    return gagnant
+    joueur["maison_j"] = gagnant
+
 
 def installation_salle_commune(joueur):
     dico = load_fichier("maisons.json")
-    print(dico["attrib"])
+    print(dico["maison_j"])
+
