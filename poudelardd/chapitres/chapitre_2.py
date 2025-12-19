@@ -1,6 +1,8 @@
 from poudelardd.chapitres.chapitre_1 import lancer_chapitre1
 from poudelardd.univers.personnage import repartition_maisons
 from poudelardd.utilis.input_utils import demander_choix, load_fichier
+from poudelardd.univers.personnage import
+
 
 
 def rencontrer_amis(joueur):
