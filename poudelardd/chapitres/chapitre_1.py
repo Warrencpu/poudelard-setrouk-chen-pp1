@@ -114,5 +114,7 @@ def lancer_chapitre1():
     personnage = creer_personnage()
     recevoir_lettre()
     rencontrer_hagrid(personnage)
+    acheter_fourniture(personnage)
     print("Vous avez fini le chapitre 1 (✿◡‿◡)")
     return personnage
+
