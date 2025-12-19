@@ -9,7 +9,8 @@ def apprendre_sorts(joueur,load_fichier='../data/sorts.json'):
         joueur['Sortilege']['Offensif'] += 1
     if random.choice = "Defensif":
         joueur['Sortilege']['Defensif'] += 1
-
+    print("Bravo vous avez appris un nouveau sortilege",)
+    print("Appuyez pour continuer")
 
 def quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json"):
     questions = load_fichier(chemin_fichier)
