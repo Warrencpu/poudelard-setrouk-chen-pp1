@@ -69,3 +69,5 @@ def lancer_chapitre_2(joueur)
     mot_de_bienvenue()
     ceremonie_repartition(joueur)
     print("Vous avez fini le chapitre 2 (˶ᵔ ᵕ ᵔ˶)")
+
+    #push 19/12/25
