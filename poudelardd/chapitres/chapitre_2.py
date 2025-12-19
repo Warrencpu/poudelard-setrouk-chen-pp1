@@ -2,7 +2,7 @@ import json
 from poudelardd.univers.maison import repartition_maisons, afficher_maison_gagnante
 from poudelardd.univers.personnage import initialiser_personnage
 from poudelardd.utilis.input_utils import demander_choix, load_fichier
-from poudelardd.univers.personnage import
+from poudelardd.univers.personnage import *
 
 
 def rencontrer_amis(joueur):
