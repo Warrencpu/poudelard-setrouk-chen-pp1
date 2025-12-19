@@ -63,3 +63,9 @@ def ceremonie_repartition(joueur):
 def installation_salle_commune(joueur):
     dico = load_fichier("maisons.json")
     print(dico["attrib"])
+
+def lancer_chapitre_2(joueur)
+    rencontrer_amis(joueur)
+    mot_de_bienvenue()
+    ceremonie_repartition(joueur)
+    print("Vous avez fini le chapitre 2 (˶ᵔ ᵕ ᵔ˶)")
