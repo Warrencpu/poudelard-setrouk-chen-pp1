@@ -1,4 +1,3 @@
-from poudelardd.univers.maison import repartition_maisons
 from poudelardd.univers.personnage import*
 import json
 import random
