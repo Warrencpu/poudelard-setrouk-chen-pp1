@@ -1,4 +1,5 @@
-from poudelardd.univers.personnage import initialiser_personnage
+from poudelardd.chapitres.chapitre_2 import joueur
+from poudelardd.univers.personnage import initialiser_personnage, modifier_argent
 from poudelardd.utilis.input_utils import demander_texte, demander_nombre, load_fichier, demander_choix
 
 def intro():
@@ -40,81 +41,75 @@ def rencontrer_hagrid(personnage):
         print("Hagrid insiste gentiment et vous entraîne quand même avec lui! ")
 
 #5
+
 def acheter_fourniture(personnage):
+    catalogue = load_fichier("../data/inventaire.json")
+    objet_obligatoire = ["Baguette magique","Robe de sorcier","Manuel de potions",]
 
-    catalogue = {
-        "0": ("Quitter la boutique", 0),
-        "1": ("Baguette magique", 35),
-        "2": ("Robe de sorcier", 20),
-        "3": ("Chaudron en étain", 15),
-        "4": ("Manuel de potions", 25),
-        "5": ("Plume magique", 5),
-        "6": ("Livre enchanté", 30),
-        "7": ("Balance de cuivre", 10),
-        "8": ("Cape d'invisibilité", 100)
-    }
+    print("   Boutique du Chemin de Traverse")
+    print("Vous avez {} galions.".format(personnage["Argent"]))
 
-    achats = []
-    choix = ""
+    for obj in catalogue:
+        nom_obj, prix = catalogue[obj]
+        print("{} : {}  : {} galions".format(obj, nom_obj, prix))
 
-    print("Le caissier vous reconnaît et vous offre 100 galions.")
-    personnage["Argent"] += 100
+    while objet_obligatoire != []:
+        print("\n vous avez {} galions".format(personnage["Argent"]))
+        print("objets obligatoires a acheter ", objet_obligatoire)
+        choix = str(demander_nombre("entrez le numéro de l'objet a acheter", 1, 8))
+        if catalogue[choix][1] > personnage["Argent"]:
+            print("Vous n'avez pas asser d'argent")
+            exit(0)
 
-    while choix != "0":
+        obj_present = False
+        for i in range(len(objet_obligatoire)):
+            if catalogue[choix][0] == objet_obligatoire[i]:
+                obj_present = True
+                ind = i
+        if obj_present == True:
+            del objet_obligatoire[ind]
 
-        print("\n Boutique du Chemin de Traverse")
-        print("Vous avez {} galions.".format(personnage["Argent"]))
+        modifier_argent(personnage, -catalogue[choix][1])
+        personnage["Inventaire"].append(catalogue[choix][0])
 
-        for obj in catalogue:
-            nom, prix = catalogue[obj]
-            if obj == "0":
-                print("{} : {}".format(obj, nom))
-            else:
-                print("{} : {} pour {} galions".format(obj, nom, prix))
+        print("vous avez acheté : {} (-{} galions)".format(catalogue[choix][0], catalogue[choix][1]))
+    print("Vous avez acheter tous les objets obligatoires !")
+    animaux = {"1":["Chouette",20],
+               "2":["Chat",15],
+               "3":["Rat",10],
+               "4":["Crapaud",5]}
 
-        choix = input("Votre choix : ")
+    print("\n vous avez {} galions".format(personnage["Argent"]))
+    print("Voici les animaux disponibles")
+    for obj in animaux:
+        nom_obj, prix = animaux[obj]
+        print("{} : {}  : {} galions".format(obj, nom_obj, prix))
+    choix = str(demander_nombre("Quel animal voulez-vous ?",1,4))
 
-        if choix not in catalogue:
-            print("Choix invalide.")
-            continue
+    if animaux[choix][1] > personnage["Argent"]:
+        print("Vous n'avez pas asser d'argent")
+        exit(0)
 
-        nom_objet, prix = catalogue[choix]
+    print("Vous avez choisi {} (-{} galions)".format(animaux[choix][0], animaux[choix][1]))
+    modifier_argent(personnage, -animaux[choix][1])
 
-        if choix == "0":
-            print("Vous sortez de la boutique.")
-            continue
+    personnage["Inventaire"].append(animaux[choix][0])
 
-        if personnage["Argent"] < prix:
-            print("Fonds insuffisants pour {}.".format(nom_objet))
-            continue
+    input("Tous les objets obligatoires ont été achetées , Voici votre inventaire final")
 
-        personnage["Argent"] -= prix
-        personnage["Inventaire"].append(nom_objet)
-        achats.append(nom_objet)
-
-        print("{} a été ajouté à votre inventaire.".format(nom_objet))
-        print("Argent restant : {} galions.".format(personnage["Argent"]))
-
-    print("\nRésumé de vos achats :")
-    for objet in achats:
-        print("- " + objet)
-
-    return personnage
+    for cle in personnage.keys():
+        print(cle,personnage[cle])
 
 
-
-    objets=load_fichier(poudelardd/data/inventaire.json)
-    print("Bienvenue sur le Chemin de Traverse ! ")
-    print("Vous devez acheter trois objets obligatoires : Une baguette magique, une robe de sorcier et un manuel de potions.")
-    print("Vous avez 100 galions.")
 
 
 def lancer_chapitre1():
     intro()
     personnage = creer_personnage()
-    recevoir_lettre()
-    rencontrer_hagrid(personnage)
+    """recevoir_lettre()
+    rencontrer_hagrid(personnage)"""
     acheter_fourniture(personnage)
     print("Vous avez fini le chapitre 1 (✿◡‿◡)")
     return personnage
 
+lancer_chapitre1()

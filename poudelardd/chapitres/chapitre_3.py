@@ -9,7 +9,7 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     offensif = 0
     defensif = 0
     utilitaire = 0
-    while len(joueur["sortileges"]) != 5:
+    while len(joueur["Sortilèges"]) != 5:
         i = random.randint(0, len(sorts) - 1)
         sort = sorts[i]
         deja_pris = False
@@ -43,33 +43,27 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
 
 
 def quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json"):
-    questions = load_fichier(chemin_fichier)
+    questions_total = load_fichier(chemin_fichier)
     input("Bienvenue au quiz de magie de Poudelard ! ;]")
-    for i in range (4):
-        points = 0
-        ques = random.choice(questions)
-        q = demander_texte(questions[ques["question"]])
-        input("1.",q)
-        rep = demander_texte("->")
+    score_total = 0
+    for t in range (4):
+        question_choisie = random.choice(questions_total)
+        input("1. {}".format(question_choisie["question"]))
+        reponse = demander_texte("->")
         bn_rep = True
-        for i in ques["reponse"]:
-            if rep[i] != ques[i]:
+        for i in range (len(reponse)) :
+            if reponse[i] != question_choisie["reponse"][i] :
                 bn_rep = False
-        if bn_rep == True:
-            input("Vous avez la bonne reponse UwU , + 25 points pour votre maison")
-            points += 25
+        if bn_rep is True:
+            input("Vous avez la bonne réponse UwU , + 25 points pour vôtre maison")
+            score_total += 25
         else:
             input("Mauvaise réponse `(*>﹏<*)′, la bonne reponse était {} ".format(ques["reponse"]))
-        input("score obtenu = {} points".format(points))
+    input("score obtenu = {} points".format(score_total))
+    joueur["score"] = score_total
 
 
 
-joueur = initialiser_personnage("Pottah","Harry",{"Courage": 0,
-            "Intelligence": 0,
-            "Loyauté" : 0,
-            "Ambition": 0})
-
-quiz_magie(joueur)
 
 def lancer_chapitre_3 (joueur) :
     apprendre_sorts(joueur,chemin_fichier="../data/sorts.json")

@@ -17,8 +17,8 @@ def nb_existe(nb):
 def demander_nombre(message,val_min=None,val_max=None):
     saisie = False
     while saisie == False :
-        nb = input(message)
-        if nb_existe(nb) == False or nb[0] == '-' and len(nb) > 1 and nb_existe(nb[1:])== False:
+        nb = demander_texte(message)
+        if nb_existe(nb) == False or nb[0] == '-' and len(nb) > 1 and nb_existe(nb[1:]) == False:
             nb = int(nb)
             if val_min is not None or val_max is not None   :
                 if nb >= val_min and nb <= val_max:

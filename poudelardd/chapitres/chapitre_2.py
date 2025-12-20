@@ -79,4 +79,3 @@ joueur = initialiser_personnage("Pottah","Harry",{"Courage": 0,
             "Intelligence": 0,
             "Loyauté" : 0,
             "Ambition": 0})
-lancer_chapitre_2(joueur)
