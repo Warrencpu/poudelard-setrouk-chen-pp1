@@ -71,3 +71,7 @@ joueur = initialiser_personnage("Pottah","Harry",{"Courage": 0,
             "Ambition": 0})
 
 quiz_magie(joueur)
+
+def lancer_chapitre_3 (joueur) :
+    apprendre_sorts(joueur,chemin_fichier="../data/sorts.json")
+    quiz_magie(joueur,chemin_fichier="..data/quiz_magie.json")
