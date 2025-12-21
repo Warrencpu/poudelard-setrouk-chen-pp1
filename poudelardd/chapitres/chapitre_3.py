@@ -13,14 +13,14 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
         i = random.randint(0, len(sorts) - 1)
         sort = sorts[i]
         deja_pris = False
-        for s in joueur["sortileges"]:
+        for s in joueur["Sortileges"]:
             if s == sort:
                 deja_pris = True
         if deja_pris == True:
             continue
         if sort["type"] == "offensif":
             if offensif < 1:
-                joueur["sortileges"].append(sort)
+                joueur["Sortileges"].append(sort)
                 offensif = offensif + 1
                 print("Sort appris :", sort["nom"], "(" + sort["type"] + ")")
         if sort["type"] == "defensif":
@@ -30,12 +30,12 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
                 print("Sort appris :", sort["nom"], "(" + sort["type"] + ")")
         if sort["type"] == "utilitaire":
             if utilitaire < 3:
-                joueur["sortileges"].append(sort)
+                joueur["Sortileges"].append(sort)
                 utilitaire = utilitaire + 1
                 print("Sort appris :", sort["nom"], "(" + sort["type"] + ")")
     print("")
     print("Recapitulatif :")
-    for sort in joueur["sortileges"]:
+    for sort in joueur["Sortileges"]:
         print(sort["nom"])
         print("type :", sort["type"])
         print("description :", sort["description"])
@@ -66,5 +66,5 @@ def quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json"):
 
 
 def lancer_chapitre_3 (joueur) :
-    apprendre_sorts(joueur,chemin_fichier="../data/sorts.json")
-    quiz_magie(joueur,chemin_fichier="..data/quiz_magie.json")
+    apprendre_sorts(joueur)
+    quiz_magie(joueur)

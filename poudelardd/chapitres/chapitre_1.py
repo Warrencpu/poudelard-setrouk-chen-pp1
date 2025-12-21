@@ -1,5 +1,5 @@
 from poudelardd.chapitres.chapitre_2 import joueur
-from poudelardd.univers.personnage import initialiser_personnage, modifier_argent
+from poudelardd.univers.personnage import initialiser_personnage, modifier_argent, afficher_personnage, ajouter_objet
 from poudelardd.utilis.input_utils import demander_texte, demander_nombre, load_fichier, demander_choix
 
 def intro():
@@ -70,10 +70,11 @@ def acheter_fourniture(personnage):
             del objet_obligatoire[ind]
 
         modifier_argent(personnage, -catalogue[choix][1])
-        personnage["Inventaire"].append(catalogue[choix][0])
+        ajouter_objet(personnage,"Inventaire",catalogue[choix][0])
 
         print("vous avez acheté : {} (-{} galions)".format(catalogue[choix][0], catalogue[choix][1]))
     print("Vous avez acheter tous les objets obligatoires !")
+
     animaux = {"1":["Chouette",20],
                "2":["Chat",15],
                "3":["Rat",10],
@@ -93,12 +94,12 @@ def acheter_fourniture(personnage):
     print("Vous avez choisi {} (-{} galions)".format(animaux[choix][0], animaux[choix][1]))
     modifier_argent(personnage, -animaux[choix][1])
 
-    personnage["Inventaire"].append(animaux[choix][0])
+    ajouter_objet(personnage,"Inventaire",animaux[choix[0]])
+
 
     input("Tous les objets obligatoires ont été achetées , Voici votre inventaire final")
 
-    for cle in personnage.keys():
-        print(cle,personnage[cle])
+    afficher_personnage(personnage)
 
 
 
@@ -106,10 +107,9 @@ def acheter_fourniture(personnage):
 def lancer_chapitre1():
     intro()
     personnage = creer_personnage()
-    """recevoir_lettre()
-    rencontrer_hagrid(personnage)"""
+    recevoir_lettre()
+    rencontrer_hagrid(personnage)
     acheter_fourniture(personnage)
     print("Vous avez fini le chapitre 1 (✿◡‿◡)")
     return personnage
 
-lancer_chapitre1()
