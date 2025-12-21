@@ -7,22 +7,22 @@ from poudelardd.univers.personnage import *
 def rencontrer_amis(joueur):
     input("Vous montez à bord du Poudlard Express. Le train démarre lentement en  direction du Nord...  ")
     input("Un garçon roux entre dans votre compartiment, l’air amical. ")
-    input("Salut ! Moi c'est ron Weasley. Tu veux bien qu'on s'assoie ensemble ?")
+    input("Salut ! Moi c'est Ron Weasley. Tu veux bien qu'on s'assoie ensemble ?")
     choixRon = demander_choix("Que répondez-vous ?",["Bien sur, assieds-toi !", "Désolé , je préfère voyager seul.e."])
     if choixRon == 2 :
         joueur['Attributs']['Ambition'] += 1
-        input("Il rebrousse chemin la tete basse")
+        input("Il rebrousse chemin la tête basse")
     elif choixRon == 1  :
         joueur['Attributs']['Loyauté'] += 1
-        input("il prend place a coté de vous avec un grand sourire")
+        input("il prend place à coté de vous avec un grand sourire")
     input("Bonjour, je m'apelle Hermione Granger. Vous avez déjà lu 'Histoire de la Magie'?")
     choixHer = demander_choix("Que repondez-vous ?",["Oui, j'adore apprendre de nouvelles choses !", "Euh... non, je préfère les aventures aux bouquins."])
     if choixHer == 1 :
         joueur['Attributs']['Intelligence'] += 1
-        input("Je suis sure que nous allons bien nous entendre !")
+        input("Je suis sûre que nous allons bien nous entendre !")
     elif choixHer == 2  :
         joueur['Attributs']['Courage'] += 1
-        input("Elle vous regarde, decue avant de partir")
+        input("Elle vous regarde, deçue avant de partir")
     input("Je suis Drago Malefoy. Mieux vaut bien choisir ses amis dès le départ, tu ne crois pas ?")
     choixDra = demander_choix("Comment réagissez-vous?",["Je lui serre la main poliment.","Je l'ignore complètement.","Je lui réponds avec arrogance."])
     if choixDra == 1 :
@@ -33,10 +33,10 @@ def rencontrer_amis(joueur):
         input("Il te lance un regard noir avant de rebrousser chemin")
     elif choixDra == 3 :
         joueur['Attributs']['Courage'] += 1
-        input("Tu fera moin le.a malin.e quand je t'aurais battu.e")
+        input("Tu fera moins le.a malin.e quand je t'aurais battu.e")
     input("Le train continue sa route. Le chateau de Poudlard se profile à l'horizon...")
     input("Tes choix semblent déjà en dire long sur ta personalité !")
-    input("Tes attributs mis à joue : {}".format(joueur['Attributs']))
+    input("Tes attributs mis à jour : {}".format(joueur['Attributs']))
 
 def mot_de_bienvenue():
     input("Bienvenue à Poudlard un endroit où la magie nest pas seulement dans les sorts mais aussi dans les rencontres les découvertes et parfois dans les imprévus qui transforment une journée ordinaire en souvenir inoubliable")
@@ -52,7 +52,7 @@ def ceremonie_repartition(joueur):
     questions = [
     (
         "Tu vois un ami en danger. Que fais-tu ?",
-        ["Je fonce l'aider", "Je réfléchis à un plan", "Je cherche de laide", "Je reste calme et jobserve"],
+        ["Je fonce l'aider", "Je réfléchis à un plan", "Je cherche de l'aide", "Je reste calme et j'observe"],
         ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
     ),
     (
@@ -62,7 +62,7 @@ def ceremonie_repartition(joueur):
     ),
     (
         "Face à un défi difficile, tu...",
-        ["Fonces sans hésiter", "Cherches la meilleure stratégie", "Comptes sur tes amis", "Analyses le problème"],
+        ["Fonce sans hésiter", "Cherche la meilleure stratégie", "Compte sur tes amis", "Analyse le problème"],
         ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
     )]
     house =repartition_maisons(joueur, questions)

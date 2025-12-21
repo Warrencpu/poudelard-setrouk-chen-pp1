@@ -4,7 +4,7 @@ from poudelardd.utilis.input_utils import demander_texte, demander_nombre, load_
 
 def intro():
     input("Bienvenue dans le monde des sorciers")
-    input("Une menace qui pèse sur l'école de Poudelard et toi seulement peu y remedier")
+    input("Une menace qui pèse sur l'école de Poudelard et toi seulement peux y remedier")
     input("Nous vous souhaitons une bonne partie , Bonne chance ☆*: .｡. o(≧▽≦)o .｡.:*☆")
 
 
@@ -36,7 +36,7 @@ def recevoir_lettre():
 def rencontrer_hagrid(personnage):
     choix = demander_choix("Hagrid : 'Salut{} ! Je suis venu t’aider à faire tes achats sur le Chemin de Traverse. EGH T'veux m'suivre dans cte aventure pti".format(personnage["Prenom"]),["oui","non"])
     if choix == 1:
-        print(" Tant mieu ptit loupiaux")
+        print(" Tant mieux ptit loupiaux")
     else:
         print("Hagrid insiste gentiment et vous entraîne quand même avec lui! ")
 
@@ -55,10 +55,10 @@ def acheter_fourniture(personnage):
 
     while objet_obligatoire != []:
         print("\n vous avez {} galions".format(personnage["Argent"]))
-        print("objets obligatoires a acheter ", objet_obligatoire)
-        choix = str(demander_nombre("entrez le numéro de l'objet a acheter", 1, 8))
+        print("Objets obligatoires à acheter ", objet_obligatoire)
+        choix = str(demander_nombre("Entrez le numéro de l'objet à acheter", 1, 8))
         if catalogue[choix][1] > personnage["Argent"]:
-            print("Vous n'avez pas asser d'argent")
+            print("Vous n'avez pas assez d'argent")
             exit(0)
 
         obj_present = False
@@ -73,7 +73,7 @@ def acheter_fourniture(personnage):
         ajouter_objet(personnage,"Inventaire",catalogue[choix][0])
 
         print("vous avez acheté : {} (-{} galions)".format(catalogue[choix][0], catalogue[choix][1]))
-    print("Vous avez acheter tous les objets obligatoires !")
+    print("Vous avez acheté tous les objets obligatoires !")
 
     animaux = {"1":["Chouette",20],
                "2":["Chat",15],
@@ -97,7 +97,7 @@ def acheter_fourniture(personnage):
     ajouter_objet(personnage,"Inventaire",animaux[choix[0]])
 
 
-    input("Tous les objets obligatoires ont été achetées , Voici votre inventaire final")
+    input("Tous les objets obligatoires ont été achetés , Voici votre inventaire final")
 
     afficher_personnage(personnage)
 

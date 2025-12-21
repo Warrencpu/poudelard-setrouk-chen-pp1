@@ -13,29 +13,29 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
         i = random.randint(0, len(sorts) - 1)
         sort = sorts[i]
         deja_pris = False
-        for s in joueur["Sortileges"]:
+        for s in joueur["Sortilèges"]:
             if s == sort:
                 deja_pris = True
         if deja_pris == True:
             continue
-        if sort["type"] == "offensif":
+        if sort["type"] == "Offensif":
             if offensif < 1:
-                joueur["Sortileges"].append(sort)
+                joueur["Sortilèges"].append(sort)
                 offensif = offensif + 1
                 print("Sort appris :", sort["nom"], "(" + sort["type"] + ")")
-        if sort["type"] == "defensif":
+        if sort["type"] == "Défensif":
             if defensif < 1:
-                joueur["sortileges"].append(sort)
+                joueur["Sortilèges"].append(sort)
                 defensif = defensif + 1
                 print("Sort appris :", sort["nom"], "(" + sort["type"] + ")")
-        if sort["type"] == "utilitaire":
+        if sort["type"] == "Utilitaire":
             if utilitaire < 3:
-                joueur["Sortileges"].append(sort)
+                joueur["Sortilèges"].append(sort)
                 utilitaire = utilitaire + 1
                 print("Sort appris :", sort["nom"], "(" + sort["type"] + ")")
     print("")
     print("Recapitulatif :")
-    for sort in joueur["Sortileges"]:
+    for sort in joueur["Sortilèges"]:
         print(sort["nom"])
         print("type :", sort["type"])
         print("description :", sort["description"])
