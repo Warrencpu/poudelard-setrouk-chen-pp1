@@ -1,4 +1,3 @@
-from poudelardd.chapitres.chapitre_2 import joueur
 from poudelardd.univers.personnage import initialiser_personnage, modifier_argent, afficher_personnage, ajouter_objet
 from poudelardd.utilis.input_utils import demander_texte, demander_nombre, load_fichier, demander_choix
 
@@ -24,8 +23,8 @@ def creer_personnage():
 
 #3
 def recevoir_lettre():
-    print("Une chouette traverse la fenêtre et vous apporte une lettre scellée du sceau de Poudlard... « Cher élève")
-    choix = demander_choix("Nous avons le plaisir de vous informer que vous avez été admis à l’école de sorcellerie de Poudlard ! ",["oui","non"])
+    print("Une chouette traverse la fenêtre et vous apporte une lettre scellée du sceau de Poudlard... ")
+    choix = demander_choix("« Cher élève nous avons le plaisir de vous informer que vous avez été admis à l’école de sorcellerie de Poudlard ! ",["oui","non"])
     if choix == 1:
         print("Bienvenue a Poudelard")
     if choix == 2:
@@ -34,20 +33,20 @@ def recevoir_lettre():
 
 #4
 def rencontrer_hagrid(personnage):
-    choix = demander_choix("Hagrid : 'Salut{} ! Je suis venu t’aider à faire tes achats sur le Chemin de Traverse. EGH T'veux m'suivre dans cte aventure pti".format(personnage["Prenom"]),["oui","non"])
+    choix = demander_choix("Hagrid : 'Salut {} ! Je suis venu t’aider à faire tes achats sur le Chemin de Traverse. Tu veux me suivre dans cette aventure pti".format(personnage["Prenom"]),["oui","non"])
     if choix == 1:
-        print(" Tant mieux ptit loupiaux")
+        input("Tu vas pas le regretter ! ")
     else:
-        print("Hagrid insiste gentiment et vous entraîne quand même avec lui! ")
+        input("Hagrid insiste gentiment et vous entraîne quand même avec lui! ")
 
 #5
 
 def acheter_fourniture(personnage):
-    catalogue = load_fichier("../data/inventaire.json")
+    catalogue = load_fichier("./data/inventaire.json")
     objet_obligatoire = ["Baguette magique","Robe de sorcier","Manuel de potions",]
 
     print("   Boutique du Chemin de Traverse")
-    print("Vous avez {} galions.".format(personnage["Argent"]))
+    input("Vous avez {} galions.".format(personnage["Argent"]))
 
     for obj in catalogue:
         nom_obj, prix = catalogue[obj]
@@ -73,7 +72,7 @@ def acheter_fourniture(personnage):
         ajouter_objet(personnage,"Inventaire",catalogue[choix][0])
 
         print("vous avez acheté : {} (-{} galions)".format(catalogue[choix][0], catalogue[choix][1]))
-    print("Vous avez acheté tous les objets obligatoires !")
+    input("Vous avez acheté tous les objets obligatoires !")
 
     animaux = {"1":["Chouette",20],
                "2":["Chat",15],
@@ -94,7 +93,7 @@ def acheter_fourniture(personnage):
     print("Vous avez choisi {} (-{} galions)".format(animaux[choix][0], animaux[choix][1]))
     modifier_argent(personnage, -animaux[choix][1])
 
-    ajouter_objet(personnage,"Inventaire",animaux[choix[0]])
+    ajouter_objet(personnage,"Inventaire",animaux[choix][0])
 
 
     input("Tous les objets obligatoires ont été achetés , Voici votre inventaire final")
@@ -112,4 +111,3 @@ def lancer_chapitre1():
     acheter_fourniture(personnage)
     print("Vous avez fini le chapitre 1 (✿◡‿◡)")
     return personnage
-

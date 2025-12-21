@@ -1,7 +1,5 @@
-import json
 from poudelardd.univers.maison import repartition_maisons, afficher_maison_gagnante
-from poudelardd.utilis.input_utils import *
-from poudelardd.univers.personnage import *
+from poudelardd.utilis.input_utils import demander_choix, load_fichier
 
 
 def rencontrer_amis(joueur):
@@ -76,7 +74,7 @@ def ceremonie_repartition(joueur):
     return gagnant
 
 def installation_salle_commune(joueur):
-    dico = load_fichier("../data/maisons.json")
+    dico = load_fichier("./data/maisons.json")
     print(dico[joueur["maison_j"]])
 
 

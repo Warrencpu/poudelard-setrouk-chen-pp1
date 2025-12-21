@@ -23,10 +23,10 @@ def repartition_maisons(joueur, questions):
            "Serpentard": 0,
            "Serdaigle": 0,
            "Poufsoufle": 0}
-    ptm['Gryffondor'] = joueur["Attributs"]["Courage"]
-    ptm['Serdaigle'] = joueur["Attributs"]["Intelligence"]
-    ptm['Poufsouffle'] = joueur["Attributs"]["Loyauté"]
-    ptm['Serpendtard'] = joueur["Attributs"]["Ambition"]
+    ptm['Gryffondor'] = joueur["Attributs"]["Courage"]*2
+    ptm['Serdaigle'] = joueur["Attributs"]["Intelligence"]*2
+    ptm['Poufsouffle'] = joueur["Attributs"]["Loyauté"]*2
+    ptm['Serpendtard'] = joueur["Attributs"]["Ambition"]*2
     for i in range(len(questions)):
         choix = demander_choix(questions[i][0], questions[i][1])
         ptm[questions[i][2][choix-1]] += 3
