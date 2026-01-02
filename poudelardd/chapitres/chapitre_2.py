@@ -83,4 +83,4 @@ def lancer_chapitre_2(joueur):
     mot_de_bienvenue()
     ceremonie_repartition(joueur)
     installation_salle_commune(joueur)
-    print("Vous avez fini le chapitre 2 (˶ᵔ ᵕ ᵔ˶)")
+    input("Vous avez fini le chapitre 2 (˶ᵔ ᵕ ᵔ˶)")

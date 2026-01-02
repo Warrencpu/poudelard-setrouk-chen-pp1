@@ -3,7 +3,7 @@ from poudelardd.utilis.input_utils import demander_texte, demander_nombre, load_
 
 def intro():
     input("Bienvenue dans le monde des sorciers")
-    input("Une menace qui pèse sur l'école de Poudelard et toi seulement peux y remedier")
+    input("Une menace règne sur l'école de Poudelard et toi seulement peux y remedier")
     input("Nous vous souhaitons une bonne partie , Bonne chance ☆*: .｡. o(≧▽≦)o .｡.:*☆")
 
 
@@ -24,7 +24,7 @@ def creer_personnage():
 #3
 def recevoir_lettre():
     print("Une chouette traverse la fenêtre et vous apporte une lettre scellée du sceau de Poudlard... ")
-    choix = demander_choix("« Cher élève nous avons le plaisir de vous informer que vous avez été admis à l’école de sorcellerie de Poudlard ! ",["oui","non"])
+    choix = demander_choix("« Cher élève nous avons le plaisir de vous informer que vous avez été admis à l’école de sorcellerie de Poudlard ! ",["Je serai ravi.e de venir","non merci je passe mon tour"])
     if choix == 1:
         print("Bienvenue a Poudelard")
     if choix == 2:

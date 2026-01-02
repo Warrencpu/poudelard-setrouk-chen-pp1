@@ -15,7 +15,7 @@ def lancer_choix_menu():
                "Poufsoufle": 0}
     choix_valide = False
     while choix_valide ==False:
-        choix = demander_choix("Bienvenue ! Par quel chapitre souhaitez-vous commencer ? ",afficher_menu_principal())
+        choix = demander_choix("Bienvenue ! Par quel chapitre souhaitez-vous commencer ? ", afficher_menu_principal())
         if choix == 1:
             personnage = lancer_chapitre1()
             lancer_chapitre_2(personnage)
@@ -25,6 +25,6 @@ def lancer_choix_menu():
             print("Merci d'avoir éssayé notre jeu , aurevoir!")
             choix_valide = True
         else:
-            print("Vous ne pouvez pas commencer par ce chapitre")
+            input("Vous ne pouvez pas commencer par ce chapitre")
 
 

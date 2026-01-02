@@ -3,7 +3,7 @@ from poudelardd.univers.personnage import*
 import json
 import random
 
-def apprendre_sorts(joueur, chemin_fichier="./data/sorts.json"):
+def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     lst_sorts = load_fichier(chemin_fichier)
     offensif = 0
     defensif = 0
