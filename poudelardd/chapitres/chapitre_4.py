@@ -98,21 +98,27 @@ def lancer_partie(joueur1,joueur2):
     input("Vous pouvez le battre d'une seule facon , en lui donnant 3 coups fatales a l'aide de vos sorts !")
     pv_j = 2
     pv_v = joueur2["PV"]
-    while ((pv_v > 0 and pv_j !=0) or (pv_v != 0 and pv_j > 0)) or (joueur1["Sortilèges"] != [] or joueur2["Sortilèges"] != []) :
-        puissance, attaque , sort_ennemi = manche(joueur1, joueur2)
-        if puissance == 1:
-            pv_v = pv_v -1
-            input("Votre sort est très efficace")
-        elif puissance == -1:
-            input("Votre sort est plus faible")
-            pv_j = pv_j - 1
+    sort = True
+    while sort == True  :
+        if joueur1["Sortilèges"] == []:
+            sort = False
+        elif ((pv_v > 0 and pv_j ==0) or (pv_v == 0 and pv_j > 0)):
+            sort = False
         else:
-            input("Votre sort n'a aucun effet")
-        joueur1["Sortilèges"].pop(attaque-1)
-        for j in range (len(joueur2["Sortilèges"])-2):
-            if joueur2["Sortilèges"][j] == sort_ennemi:
-                joueur2["Sortilèges"].pop(j)
-        print("Score _ Voldemort : ",pv_v,"{} : {}".format(joueur1["Prenom"],pv_j))
+            puissance, attaque , sort_ennemi = manche(joueur1, joueur2)
+            if puissance == 1:
+                pv_v = pv_v -1
+                input("Votre sort est très efficace")
+            elif puissance == -1:
+                input("Votre sort est plus faible")
+                pv_j = pv_j - 1
+            else:
+                input("Votre sort n'a aucun effet")
+            joueur1["Sortilèges"].pop(attaque-1)
+            for j in range (len(joueur2["Sortilèges"])-2):
+                if joueur2["Sortilèges"][j] == sort_ennemi:
+                    joueur2["Sortilèges"].pop(j)
+            print("Score _ Voldemort : ",pv_v,"{} : {}".format(joueur1["Prenom"],pv_j))
     if pv_v == 0:
         print("Vous avez gagné")
     elif pv_j == 0 :
