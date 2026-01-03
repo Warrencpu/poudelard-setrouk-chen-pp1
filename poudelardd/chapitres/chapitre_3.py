@@ -9,7 +9,7 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     defensif = 0
     utilitaire = 0
     input("tu commence tes cours de magie à Poudlard...")
-    while len(joueur["Sortilèges"]) < 5:
+    while len(joueur["Sortilèges"]) < 9:
         i = random.randint(0, len(lst_sorts)-1 )
         sort = lst_sorts[i]
         deja_pris = False
@@ -18,12 +18,12 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
                 deja_pris = True
         if deja_pris == False:
             if sort["type"] == "Offensif":
-                if offensif < 1:
+                if offensif < 3:
                     joueur["Sortilèges"].append(sort)
                     offensif = offensif + 1
                     print("Sort appris :", sort["nom"], "(" + sort["type"] + ")")
             if sort["type"] == "Défensif":
-                if defensif < 1:
+                if defensif < 3:
                     joueur["Sortilèges"].append(sort)
                     defensif = defensif + 1
                     print("Sort appris :", sort["nom"], "(" + sort["type"] + ")")
