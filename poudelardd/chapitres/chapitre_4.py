@@ -79,7 +79,11 @@ def probabilités(joueur1, joueur2):
 
 def manche(joueur1, joueur2):
     probabilités(joueur1,joueur2)
-    attaque = demander_choix("quel sort souhaitez vous lancer",joueur1["Sortilèges"])
+    tb = []
+    for i in range(len(joueur1["Sortilèges"])):
+        tb.append("sortilège {} ({}) avce {}% de réussite".format(joueur1["Sortilèges"][i]["nom"],joueur1["Sortilèges"][i]["type"],joueur1["Sortilèges"][i]["Probabilités"]))
+    print(tb)
+    attaque = demander_choix("quel sort souhaitez vous lancer",tb)
     input("Vous avez choisi {} ({})".format(joueur1["Sortilèges"][attaque-1]["nom"],joueur1["Sortilèges"][attaque-1]["type"]))
     sort_ennemi = random.choice(joueur2["Sortilèges"])
     input("Voldemort a utilisé {} ({})".format(sort_ennemi["nom"],sort_ennemi["type"]))
@@ -94,7 +98,7 @@ def lancer_partie(joueur1,joueur2):
     input("Vous pouvez le battre d'une seule facon , en lui donnant 3 coups fatales a l'aide de vos sorts !")
     pv_j = 2
     pv_v = joueur2["PV"]
-    while (pv_v > 0 and pv_j !=0) or (pv_v != 0 and pv_j > 0):
+    while ((pv_v > 0 and pv_j !=0) or (pv_v != 0 and pv_j > 0)) or (joueur1["Sortilèges"] != [] or joueur2["Sortilèges"] != []) :
         puissance, attaque , sort_ennemi = manche(joueur1, joueur2)
         if puissance == 1:
             pv_v = pv_v -1
@@ -111,8 +115,10 @@ def lancer_partie(joueur1,joueur2):
         print("Score _ Voldemort : ",pv_v,"{} : {}".format(joueur1["Prenom"],pv_j))
     if pv_v == 0:
         print("Vous avez gagné")
-    else :
+    elif pv_j == 0 :
         print("Vous avez perdu")
+    else:
+        print("Vous et votre adversaire vous étes effondrée de fatigue")
 
 def lancer_chapitre4(joueur):
     Voldemort = initialiser_voldemor()

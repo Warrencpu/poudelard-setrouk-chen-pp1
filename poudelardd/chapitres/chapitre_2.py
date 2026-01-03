@@ -34,7 +34,7 @@ def rencontrer_amis(joueur):
         input("Tu fera moins le.a malin.e quand je t'aurais battu.e")
     input("Le train continue sa route. Le chateau de Poudlard se profile à l'horizon...")
     input("Tes choix semblent déjà en dire long sur ta personalité !")
-    input("Tes attributs mis à jour : {}".format(joueur['Attributs']))
+    input("Tes attributs mis à jour : Courage : {} , Intelligence : {} , Loyauté : {} , Ambition : {}".format(joueur['Attributs']["Courage"],joueur['Attributs']["Intelligence"],joueur['Attributs']["Loyauté"],joueur['Attributs']["Ambition"]))
 
 def mot_de_bienvenue():
     input("Bienvenue à Poudlard un endroit où la magie nest pas seulement dans les sorts mais aussi dans les rencontres les découvertes et parfois dans les imprévus qui transforment une journée ordinaire en souvenir inoubliable")
@@ -63,10 +63,10 @@ def ceremonie_repartition(joueur):
         ["Fonce sans hésiter", "Cherche la meilleure stratégie", "Compte sur tes amis", "Analyse le problème"],
         ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
     )]
-    house =repartition_maisons(joueur, questions)
-    gagnant = afficher_maison_gagnante(house)
+    repartition_maisons(joueur, questions)
+    gagnant = afficher_maison_gagnante(joueur["houses_pts"])
     print("Résumé des scores : ")
-    for a,b in house.items():
+    for a,b in joueur["houses_pts"].items():
         print("{} : {} points". format(a,b))
     input("Le Choipeau s'exclame : {} !!".format(gagnant))
     input("Tu rejoints les éléves de {} sous les acclamations ! ".format(gagnant))
@@ -75,7 +75,10 @@ def ceremonie_repartition(joueur):
 
 def installation_salle_commune(joueur):
     dico = load_fichier("./data/maisons.json")
-    print(dico[joueur["maison_j"]])
+    print(dico[joueur["maison_j"]]["emoji"],dico[joueur["maison_j"]]["description"])
+    print(dico[joueur["maison_j"]]["message_installation"])
+    print("Les couleur de vos maisons sont",dico[joueur["maison_j"]]["couleurs"][0],dico[joueur["maison_j"]]["couleurs"][1])
+
 
 
 def lancer_chapitre_2(joueur):

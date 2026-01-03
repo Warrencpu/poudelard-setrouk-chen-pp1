@@ -60,7 +60,7 @@ def quiz_magie(joueur, chemin_fichier="./data/quiz_magie.json"):
         else:
             input("Mauvaise réponse `(*>﹏<*)′, la bonne reponse était {} ".format(question_choisie["reponse"]))
     input("score obtenu = {} points".format(score_total))
-    actualiser_points_maisons(joueur, joueur["maison_j"],score_total)
+    actualiser_points_maisons( joueur["houses_pts"],joueur["maison_j"],score_total)
 
 
 

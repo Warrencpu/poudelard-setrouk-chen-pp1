@@ -4,7 +4,7 @@ from poudelardd.utilis.input_utils import demander_texte, demander_nombre, load_
 def intro():
     input("Bienvenue dans le monde des sorciers")
     input("Une menace règne sur l'école de Poudelard et toi seulement peux y remedier")
-    input("Nous vous souhaitons une bonne partie , Bonne chance ☆*: .｡. o(≧▽≦)o .｡.:*☆")
+    input("Nous vous souhaitons bonne chance ☆*: .｡. o(≧▽≦)o .｡.:*☆")
 
 
 def creer_personnage():
@@ -12,8 +12,8 @@ def creer_personnage():
             "Intelligence": 0,
             "Loyauté" : 0,
             "Ambition": 0}
-    nom =demander_texte("quel est votre nom")
-    prenom = demander_texte("quel est votre prenom")
+    prenom = demander_texte("Quel est votre prenom")
+    nom = demander_texte("Quel est votre nom")
     print("Choisissez vos attributs")
     for a, b  in attr.items():
         b = demander_nombre("niveau de {} (1-10) ".format(a),1,10)
@@ -33,9 +33,9 @@ def recevoir_lettre():
 
 #4
 def rencontrer_hagrid(personnage):
-    choix = demander_choix("Hagrid : 'Salut {} ! Je suis venu t’aider à faire tes achats sur le Chemin de Traverse. Tu veux me suivre dans cette aventure pti".format(personnage["Prenom"]),["oui","non"])
+    choix = demander_choix("Hagrid : 'Salut {} ! Je suis venu t’aider à faire tes achats sur le Chemin de Traverse. Tu veux me suivre dans cette aventure magique ?".format(personnage["Prenom"]),["oui","non"])
     if choix == 1:
-        input("Tu vas pas le regretter ! ")
+        input("Tu ne vas pas le regretter ! ")
     else:
         input("Hagrid insiste gentiment et vous entraîne quand même avec lui! ")
 
