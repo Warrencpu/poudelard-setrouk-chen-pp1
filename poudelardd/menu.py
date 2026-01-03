@@ -1,11 +1,12 @@
 from poudelardd.chapitres.chapitre_1 import lancer_chapitre1
 from poudelardd.chapitres.chapitre_2 import lancer_chapitre_2
 from poudelardd.chapitres.chapitre_3 import lancer_chapitre_3
+from poudelardd.chapitres.chapitre_4 import lancer_chapitre4
 from poudelardd.utilis.input_utils import demander_choix
 
 
 def afficher_menu_principal():
-    lst =[" Lancer le Chapitre 1 - L'Arrivée dans le monde magique."," Lancer le Chapitre 2 - Le voyage vers Poudlard."," Lancer le Chapitre 3 - Les cours et la decouverte de Poudlard."," Quitter le jeu"]
+    lst =[" Lancer le Chapitre 1 - L'Arrivée dans le monde magique."," Lancer le Chapitre 2 - Le voyage vers Poudlard."," Lancer le Chapitre 3 - Les cours et la decouverte de Poudlard."," Lancer le Chapitre 4 - L'affrontement Finale"," Quitter le jeu"]
     return lst
 
 def lancer_choix_menu():
@@ -20,8 +21,9 @@ def lancer_choix_menu():
             personnage = lancer_chapitre1()
             lancer_chapitre_2(personnage)
             lancer_chapitre_3(personnage)
+            lancer_chapitre4(personnage)
             choix_valide = True
-        elif choix == 4:
+        elif choix == 5:
             print("Merci d'avoir éssayé notre jeu , aurevoir!")
             choix_valide = True
         else:

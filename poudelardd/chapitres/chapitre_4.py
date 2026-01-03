@@ -11,7 +11,8 @@ def initialiser_voldemor():
            "Ambition": 1000000}
     voldemor = initialiser_personnage("Lord","Voldemor", attributs)
     diff = demander_choix("Quel difficulté choisissez-vous",["Simple","Moyen","Difficile"])
-    lst_sorts = load_fichier("../data/sorts.json")
+    lst_sorts = load_fichier("./data/sorts.json")
+    voldemor["PV"] = 2
     if diff == 1:
         for i in range (9):
             c = random.randint(0, len(lst_sorts)-1 )
@@ -91,11 +92,10 @@ def lancer_partie(joueur1,joueur2):
     input("Vous arrivez au milieu de la cour de l'école et se tien devant vous...")
     input("Lord Voldemort ! :-O")
     input("Vous pouvez le battre d'une seule facon , en lui donnant 3 coups fatales a l'aide de vos sorts !")
-    pv_v = pv_j = 2
+    pv_j = 2
     pv_v = joueur2["PV"]
-    fin = False
     while (pv_v > 0 and pv_j !=0) or (pv_v != 0 and pv_j > 0):
-        puissance, attaque , sort_ennemi = manche(joueur, voldemort)
+        puissance, attaque , sort_ennemi = manche(joueur1, joueur2)
         if puissance == 1:
             pv_v = pv_v -1
             input("Votre sort est très efficace")
@@ -120,13 +120,3 @@ def lancer_chapitre4(joueur):
     input("Vous avez fini le chapitre 4")
 
 
-attributs = {"Courage": 0,
-           "Intelligence": 2,
-           "Loyauté": 0,
-           "Ambition": 1000000}
-joueur = initialiser_personnage("Prout","caca",attributs)
-apprendre_sorts(joueur)
-
-voldemort = initialiser_voldemor()
-
-lancer_partie(joueur,voldemort)
